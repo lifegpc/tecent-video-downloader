@@ -1,0 +1,10 @@
+*.exe
+Chrome Data/
+*.pyc
+*.log
+*.txt
+!requirements.txt
+*.mp4
+Temp/
+Download/
+__pycache__/
