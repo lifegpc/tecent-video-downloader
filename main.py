@@ -228,6 +228,8 @@ class main:
             cap["goog:loggingPrefs"] = {"performance": "ALL"}
             option = webdriver.ChromeOptions()
             option.add_argument(f"user-data-dir={abspath('Chrome Data')}")
+            option.add_argument("disable-logging")
+            option.add_argument('log-level=3')
             self.__driver = webdriver.Chrome(
                 options=option, desired_capabilities=cap)
             self.__driver.set_page_load_timeout(10)
