@@ -67,7 +67,7 @@ class FFMpeg:
                 f.write(f"date={self.__filter(self.__metadata['date'])}\n")
             if self.__meta('playUrl'):
                 f.write(
-                    f"episode_id={self.__filter(self.__metadata['date'])}\n")
+                    f"episode_id={self.__filter(self.__metadata['playUrl'])}\n")
 
     def __filter(self, i: str):
         s = str(i)
