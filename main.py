@@ -49,7 +49,7 @@ class main:
         da = self.__metadata
         try:
             title = self.__driver.find_elements_by_class_name(
-                'video_title _video_title')
+                'video_title._video_title')
             if len(title) != 0:
                 if 'title' not in da or da['title'] == '':
                     da['title'] = title[0].text

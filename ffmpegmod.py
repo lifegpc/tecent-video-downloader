@@ -46,22 +46,30 @@ class FFMpeg:
             if self.__meta('subTitle'):
                 if self.__meta('title'):
                     if self.__metadata['title'] != self.__metadata['subTitle']:
-                        f.write(f"title={self.__filter(self.__metadata['title'])} - {self.__filter(self.__metadata['subTitle'])}\n")
+                        f.write(
+                            f"title={self.__filter(self.__metadata['title'])} - {self.__filter(self.__metadata['subTitle'])}\n")
                     else:
-                        f.write(f"title={self.__filter(self.__metadata['title'])}\n")
-                    f.write(f"album={self.__filter(self.__metadata['title'])}\n")
+                        f.write(
+                            f"title={self.__filter(self.__metadata['title'])}\n")
+                    f.write(
+                        f"album={self.__filter(self.__metadata['title'])}\n")
                 else:
-                    f.write(f"title={self.__filter(self.__metadata['subTitle'])}\n")
+                    f.write(
+                        f"title={self.__filter(self.__metadata['subTitle'])}\n")
             elif self.__meta('title'):
                 f.write(f"title={self.__filter(self.__metadata['title'])}\n")
             if self.__meta('desc'):
                 f.write(f"comment={self.__filter(self.__metadata['desc'])}\n")
             if self.__meta('username'):
-                f.write(f"artist={self.__filter(self.__metadata['username'])}\n")
+                f.write(
+                    f"artist={self.__filter(self.__metadata['username'])}\n")
             if self.__meta('date'):
                 f.write(f"date={self.__filter(self.__metadata['date'])}\n")
+            if self.__meta('playUrl'):
+                f.write(
+                    f"episode_id={self.__filter(self.__metadata['date'])}\n")
 
-    def __filter(self, i:str):
+    def __filter(self, i: str):
         s = str(i)
         re = search(r'[^[:print:]\r\n]', s)
         while re is not None:
@@ -81,7 +89,7 @@ class FFMpeg:
         self.__options.file_name = filtern(self.__options.file_name)
         self.__metadata = self.__options.metadata
         self.__tempName = ''
-    
+
     def __meta(self, key: str):
         return self.__options.meta(key)
 
